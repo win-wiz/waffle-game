@@ -1,6 +1,8 @@
 import React, { memo, useMemo } from 'react';
 import { useScroll, scrollToElement } from '@/hooks/use-scroll';
-import { HelpCircle, BarChart3 } from 'lucide-react';
+import { HelpCircle, BarChart3, Share2 } from 'lucide-react';
+import { ShareDialog } from '@/components/ui/share-dialog';
+import { gameStatsManager } from '@/lib/statistics';
 
 interface GameHeaderProps {
   moveCount: number;
@@ -30,6 +32,27 @@ export const GameHeader = memo(function GameHeader({
   const handleStatisticsClick = () => {
     onShowStatistics?.();
   };
+
+  // Prepare share data
+  const shareData = useMemo(() => {
+    try {
+      const stats = gameStatsManager.getStatistics();
+      return {
+        gameStatus: gameStatus as 'won' | 'lost',
+        moveCount,
+        maxMoves,
+        totalGames: stats.totalGames,
+        winRate: stats.winRate,
+        currentStreak: stats.currentStreak
+      };
+    } catch {
+      return {
+        gameStatus: gameStatus as 'won' | 'lost',
+        moveCount,
+        maxMoves
+      };
+    }
+  }, [gameStatus, moveCount, maxMoves]);
 
   // Memoize status display content
   const statusContent = useMemo(() => {
@@ -118,6 +141,28 @@ export const GameHeader = memo(function GameHeader({
                 {statusContent.text}
               </div>
             </div>
+            <ShareDialog
+              shareData={shareData}
+              trigger={
+                <button
+                  className={helpButtonClasses}
+                  title='Share Game'
+                  aria-label='Share your game progress'
+                >
+                  <Share2 className='w-5 h-5 text-blue-600' />
+                </button>
+              }
+              title={
+                gameStatus === 'won'
+                  ? 'Share Your Victory!'
+                  : 'Share Your Progress!'
+              }
+              description={
+                gameStatus === 'won'
+                  ? 'Show off your amazing Waffle game performance!'
+                  : 'Share your current Waffle game progress with friends!'
+              }
+            />
             <button
               onClick={handleStatisticsClick}
               className={helpButtonClasses}

@@ -14,6 +14,7 @@ import { AISuggestion } from '@/components/waffle-game/ai-suggestion';
 import { GameEndDialog } from '@/components/waffle-game/game-end-dialog';
 import { useGameLogic } from '@/components/waffle-game/use-game-logic';
 import Statistics from '@/components/statistics';
+import { gameStatsManager } from '@/lib/statistics';
 import type { SquareNumber, Board, Tile } from '@/types';
 import { Color } from '@/types';
 
@@ -198,6 +199,15 @@ const HomePage = memo(function HomePage() {
     [swaps, board, handleApplySuggestionWithScroll]
   );
 
+  // 获取统计数据用于分享功能
+  const statisticsData = useMemo(() => {
+    try {
+      return gameStatsManager.getStatistics();
+    } catch {
+      return null;
+    }
+  }, [gameStatus]); // 当游戏状态改变时重新获取统计数据
+
   // 缓存游戏结束对话框属性
   const gameEndDialogProps = useMemo(
     () => ({
@@ -207,7 +217,10 @@ const HomePage = memo(function HomePage() {
       maxMoves,
       onRestart: handleGameEndRestart,
       onNewGame: handleGameEndNewGame,
-      onClose: handleGameEndClose
+      onClose: handleGameEndClose,
+      totalGames: statisticsData?.totalGames,
+      winRate: statisticsData?.winRate,
+      currentStreak: statisticsData?.currentStreak
     }),
     [
       showGameEndDialog,
@@ -216,7 +229,8 @@ const HomePage = memo(function HomePage() {
       maxMoves,
       handleGameEndRestart,
       handleGameEndNewGame,
-      handleGameEndClose
+      handleGameEndClose,
+      statisticsData
     ]
   );
 

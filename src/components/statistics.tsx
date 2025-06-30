@@ -44,7 +44,8 @@ import {
   RotateCcw,
   Award,
   Zap,
-  Timer
+  Timer,
+  Share2
 } from 'lucide-react';
 import {
   gameStatsManager,
@@ -52,6 +53,7 @@ import {
   GameResult,
   DailyStats
 } from '@/lib/statistics';
+import { ShareDialog } from '@/components/ui/share-dialog';
 import { toast } from 'sonner';
 
 interface StatisticsProps {
@@ -216,7 +218,7 @@ const Statistics: React.FC<StatisticsProps> = ({
       {!isExternallyControlled && (
         <DialogTrigger asChild>{trigger || defaultTrigger}</DialogTrigger>
       )}
-      <DialogContent className='max-w-5xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 border-0 shadow-2xl rounded-2xl z-50'>
+      <DialogContent className='max-w-5xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 border-0 shadow-2xl rounded-3xl z-50'>
         <DialogHeader className='text-center pb-6 border-b border-slate-200 dark:border-slate-700'>
           <DialogTitle className='flex items-center justify-center gap-3 text-2xl font-bold text-slate-800 dark:text-slate-100'>
             <div className='p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded-full'>
@@ -238,28 +240,28 @@ const Statistics: React.FC<StatisticsProps> = ({
           </div>
         ) : (
           <Tabs defaultValue='overview' className='w-full mt-6'>
-            <TabsList className='grid w-full grid-cols-4 h-12 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border border-slate-200 dark:border-slate-600 rounded-xl p-1'>
+            <TabsList className='grid w-full grid-cols-4 h-12 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border border-slate-200 dark:border-slate-600 rounded-2xl p-1'>
               <TabsTrigger
                 value='overview'
-                className='text-sm font-medium rounded-lg data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-md transition-all'
+                className='text-sm font-medium rounded-xl data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-md transition-all'
               >
                 Overview
               </TabsTrigger>
               <TabsTrigger
                 value='performance'
-                className='text-sm font-medium rounded-lg data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-md transition-all'
+                className='text-sm font-medium rounded-xl data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-md transition-all'
               >
                 Performance
               </TabsTrigger>
               <TabsTrigger
                 value='history'
-                className='text-sm font-medium rounded-lg data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-md transition-all'
+                className='text-sm font-medium rounded-xl data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-md transition-all'
               >
                 History
               </TabsTrigger>
               <TabsTrigger
                 value='trends'
-                className='text-sm font-medium rounded-lg data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-md transition-all'
+                className='text-sm font-medium rounded-xl data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-md transition-all'
               >
                 Trends
               </TabsTrigger>
@@ -267,17 +269,17 @@ const Statistics: React.FC<StatisticsProps> = ({
 
             <TabsContent value='overview' className='space-y-6 pt-4'>
               {/* Period Selector */}
-              <div className='flex items-center justify-between bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl p-4 border border-slate-200 dark:border-slate-600'>
+              <div className='flex items-center justify-between bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-2xl p-4 border border-slate-200 dark:border-slate-600'>
                 <span className='text-base font-semibold text-slate-700 dark:text-slate-300'>
                   Time Period:
                 </span>
-                <div className='flex gap-2 bg-slate-100 dark:bg-slate-700 rounded-lg p-1'>
+                <div className='flex gap-2 bg-slate-100 dark:bg-slate-700 rounded-xl p-1'>
                   {(['all', '30', '7'] as const).map(period => (
                     <Button
                       key={period}
                       variant='ghost'
                       size='sm'
-                      className={`rounded-md px-4 py-2 text-sm font-medium transition-all ${
+                      className={`rounded-lg px-4 py-2 text-sm font-medium transition-all ${
                         selectedPeriod === period
                           ? 'bg-blue-500 text-white shadow-md'
                           : 'text-slate-600 dark:text-slate-400 hover:bg-white/60 dark:hover:bg-slate-600'
@@ -634,6 +636,31 @@ const Statistics: React.FC<StatisticsProps> = ({
 
         <DialogFooter className='flex justify-between items-center pt-6 border-t border-slate-200 dark:border-slate-700'>
           <div className='flex gap-3'>
+            {/* Share Statistics Button */}
+            <ShareDialog
+              shareData={{
+                gameStatus: 'won', // Show positive stats sharing
+                moveCount: Math.round(statistics.averageMovesWon || 0),
+                maxMoves: 15,
+                totalGames: statistics.totalGames,
+                winRate: statistics.winRate,
+                currentStreak: statistics.currentStreak
+              }}
+              trigger={
+                <Button
+                  variant='outline'
+                  size='sm'
+                  disabled={statistics.totalGames === 0}
+                  className='bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:border-blue-300 dark:hover:border-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed'
+                >
+                  <Share2 className='w-4 h-4 mr-2' />
+                  Share Stats
+                </Button>
+              }
+              title='Share Your Gaming Statistics'
+              description='Share your impressive Waffle game achievements!'
+            />
+
             <AlertDialog>
               <AlertDialogTrigger asChild>
                 <Button
