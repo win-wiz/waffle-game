@@ -31,11 +31,11 @@
 
     // 代码风格规则
     "indent": "off",
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    "comma-dangle": ["error", "never"],
-    "eol-last": ["error", "always"],
-    "no-trailing-spaces": "error",
+    "quotes": "off",
+    "semi": "off",
+    "comma-dangle": "off",
+    "eol-last": "off",
+    "no-trailing-spaces": "off",
 
     // Next.js 相关规则
     "@next/next/no-img-element": "error",

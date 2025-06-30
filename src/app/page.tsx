@@ -2,7 +2,7 @@
 
 import { memo, useMemo, useCallback, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { useScroll } from '@/hooks/use-scroll';
+import { useScroll, scrollToElement } from '@/hooks/use-scroll';
 import { ScrollToTop } from '@/components/scroll-to-top';
 // import HelpCenter from '@/components/help-center';
 // import FAQ from '@/components/faq';
@@ -92,6 +92,39 @@ const HomePage = memo(function HomePage() {
     setShowStatistics(false);
   }, []);
 
+  // 包装getSuggestion函数，添加滚动到AI建议区域的逻辑
+  const handleGetSuggestionWithScroll = useCallback(async () => {
+    await getSuggestion();
+    // 延迟滚动，确保AI建议内容已经渲染
+    setTimeout(() => {
+      const aiSuggestionsElement = document.getElementById('ai-suggestions');
+
+      if (aiSuggestionsElement) {
+        // 获取AI建议区域的位置
+        const aiRect = aiSuggestionsElement.getBoundingClientRect();
+        const aiTop = aiRect.top + window.scrollY;
+
+        // 计算滚动目标：让AI建议区域的顶部显示在屏幕的下1/3处
+        // 这样屏幕上2/3显示游戏区域，下1/3显示AI建议区域
+        const targetScrollY = aiTop - (window.innerHeight * 2) / 3 + 100;
+
+        window.scrollTo({
+          top: Math.max(0, targetScrollY), // 确保不会滚动到负数位置
+          behavior: 'smooth'
+        });
+      }
+    }, 300);
+  }, [getSuggestion]);
+
+  // 包装applySuggestedSwap函数，添加滚动到游戏区域的逻辑
+  const handleApplySuggestionWithScroll = useCallback(() => {
+    applySuggestedSwap();
+    // 延迟滚动，确保游戏状态已更新
+    setTimeout(() => {
+      scrollToElement('game-area', 100);
+    }, 200);
+  }, [applySuggestedSwap]);
+
   // 缓存游戏头部属性
   const gameHeaderProps = useMemo(
     () => ({
@@ -135,7 +168,7 @@ const HomePage = memo(function HomePage() {
       isGenerating,
       isLoadingClassic,
       showAIPrompts,
-      onGetSuggestion: getSuggestion,
+      onGetSuggestion: handleGetSuggestionWithScroll,
       onResetGame: resetGame,
       onGenerateNewPuzzle: generateNewPuzzle,
       onUseClassicPuzzle: useClassicPuzzle,
@@ -147,7 +180,7 @@ const HomePage = memo(function HomePage() {
       isGenerating,
       isLoadingClassic,
       showAIPrompts,
-      getSuggestion,
+      handleGetSuggestionWithScroll,
       resetGame,
       generateNewPuzzle,
       useClassicPuzzle,
@@ -160,9 +193,9 @@ const HomePage = memo(function HomePage() {
     () => ({
       swaps,
       board: board!,
-      onApplySuggestedSwap: applySuggestedSwap
+      onApplySuggestedSwap: handleApplySuggestionWithScroll
     }),
-    [swaps, board, applySuggestedSwap]
+    [swaps, board, handleApplySuggestionWithScroll]
   );
 
   // 缓存游戏结束对话框属性
@@ -209,6 +242,7 @@ const HomePage = memo(function HomePage() {
 
         {/* 游戏主区域 - 填满整个可见区域并垂直居中 */}
         <div
+          id='game-area'
           className='flex flex-col items-center justify-center gap-6 py-6 w-full'
           style={gameAreaStyle}
         >
@@ -224,7 +258,9 @@ const HomePage = memo(function HomePage() {
         {/* 以下内容需要滚动才能看到 */}
         <main className='max-w-6xl mx-auto px-6 py-8 bg-gradient-to-br from-slate-50/25 via-gray-50/15 to-blue-50/40'>
           {/* AI建议区域 */}
-          {board && <AISuggestion {...aiSuggestionProps} />}
+          <div id='ai-suggestions'>
+            {board && <AISuggestion {...aiSuggestionProps} />}
+          </div>
 
           {/* AI生成器区域 */}
           {/* 第一期暂时隐藏AI生成功能 */}

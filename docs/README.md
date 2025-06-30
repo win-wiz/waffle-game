@@ -41,6 +41,8 @@ docs/
 ### 迭代规划
 - [项目路线图](./iterations/roadmap.md) - 整体发展规划
 - [经典谜题集迭代](./iterations/classic-puzzles-roadmap.md) - 经典谜题集扩展计划
+- [高级迭代计划 2024-2025](./iterations/advanced-roadmap-2024-2025.md) - 四阶段全面升级方案
+- [迭代计划总结](./iterations/roadmap-summary-2024-2025.md) - 快速了解核心要点
 
 ### 开发相关
 - [项目设置](./guides/setup.md) - 环境配置和依赖安装
@@ -63,4 +65,4 @@ docs/
 
 ---
 
-*最后更新: 2024-06-27* 
+*最后更新: 2024-06-27*

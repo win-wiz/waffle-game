@@ -95,24 +95,24 @@ body {
 
 /* 颜色样式 - 现代配色 */
 .waffle-tile.green {
-  background: linear-gradient(135deg, #6aaa64 0%, #5a9954 100%);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: #ffffff;
-  border-color: #6aaa64;
-  box-shadow: 0 2px 8px rgba(106, 170, 100, 0.25);
+  border-color: #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
 }
 
 .waffle-tile.yellow {
-  background: linear-gradient(135deg, #c9b458 0%, #b8a347 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   color: #ffffff;
-  border-color: #c9b458;
-  box-shadow: 0 2px 8px rgba(201, 180, 88, 0.25);
+  border-color: #f59e0b;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
 }
 
 .waffle-tile.gray {
-  background: linear-gradient(135deg, #787c7e 0%, #6c757d 100%);
+  background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
   color: #ffffff;
-  border-color: #787c7e;
-  box-shadow: 0 2px 8px rgba(120, 124, 126, 0.25);
+  border-color: #94a3b8;
+  box-shadow: 0 2px 8px rgba(148, 163, 184, 0.25);
 }
 
 /* 顶部导航栏 - 优化版本 */
@@ -370,7 +370,7 @@ body {
   color: rgba(55, 65, 81, 0.6);
 }
 .apply-hint-btn {
-  background: linear-gradient(135deg, #6aaa64 0%, #5a9954 100%);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: #ffffff;
   border: none;
   padding: 12px 20px;
@@ -379,12 +379,12 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(106, 170, 100, 0.25);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
 }
 .apply-hint-btn:hover {
-  background: linear-gradient(135deg, #5a9954 0%, #4a8944 100%);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(106, 170, 100, 0.35);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
 }
 
 /* 游戏说明区 - 优化版本 */
