@@ -44,8 +44,9 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -116,7 +117,7 @@ body {
 
 /* 顶部导航栏 - 优化版本 */
 .top-navbar {
-  background: rgba(255, 255, 255, 0.90);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   padding: 24px 0;
@@ -345,7 +346,7 @@ body {
   text-align: left;
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  animation: fadeInUp 0.8s ease-out 1.0s both;
+  animation: fadeInUp 0.8s ease-out 1s both;
 }
 .hints-list {
   margin-bottom: 12px;
@@ -412,7 +413,9 @@ body {
   color: #374151;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-.color-guide, .game-goal, .game-tips {
+.color-guide,
+.game-goal,
+.game-tips {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding: 20px;
@@ -421,13 +424,17 @@ body {
   transition: all 0.3s ease;
 }
 
-.color-guide:hover, .game-goal:hover, .game-tips:hover {
+.color-guide:hover,
+.game-goal:hover,
+.game-tips:hover {
   background: rgba(255, 255, 255, 1);
   border-color: rgba(0, 0, 0, 0.2);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
-.color-guide h4, .game-goal h4, .game-tips h4 {
+.color-guide h4,
+.game-goal h4,
+.game-tips h4 {
   font-size: 1rem;
   font-weight: 700;
   color: #374151;
@@ -443,7 +450,8 @@ body {
   font-size: 0.9rem;
   color: rgba(55, 65, 81, 0.7);
 }
-.game-goal p, .game-tips li {
+.game-goal p,
+.game-tips li {
   font-size: 0.9rem;
   color: rgba(55, 65, 81, 0.8);
   margin-bottom: 8px;
@@ -509,8 +517,12 @@ body {
 
 /* 加载动画 */
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-spinner {
@@ -534,9 +546,15 @@ body {
 }
 
 @keyframes flash {
-  0% { background-color: #fff; }
-  50% { background-color: #0066cc; }
-  100% { background-color: inherit; }
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #0066cc;
+  }
+  100% {
+    background-color: inherit;
+  }
 }
 
 /* 响应式设计 */
@@ -544,24 +562,24 @@ body {
   .main-content {
     padding: 1rem;
   }
-  
+
   .game-main-title {
     font-size: 2rem;
   }
-  
+
   .navbar-content {
     padding: 0 1rem;
   }
-  
+
   .navbar-stats {
     gap: 1rem;
   }
-  
+
   .secondary-actions {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .help-content {
     grid-template-columns: 1fr;
   }
@@ -573,37 +591,36 @@ body {
     height: 55px;
     font-size: 1.2rem;
   }
-  
+
   .wordless-main-content {
     padding: 24px 16px;
   }
-  
+
   .main-action-btn {
     padding: 0.8rem 1.8rem;
     font-size: 1rem;
   }
-  
+
   .secondary-btn {
     padding: 0.5rem 1.1rem;
     font-size: 0.9rem;
   }
-  
+
   .waffle-info-block {
     padding: 12px;
     margin: 20px 0 16px;
   }
-  
+
   .waffle-title {
     font-size: 1.8rem;
   }
-  
+
   .brand-name {
     font-size: 1rem;
   }
 }
 
 /* 游戏区域响应式样式 */
-
 
 .game-container {
   width: 100%;
@@ -660,24 +677,24 @@ body {
 
 /* 颜色样式 - 动态瓦片版本 */
 .dynamic-waffle-tile.green {
-  background: linear-gradient(135deg, #6aaa64 0%, #5a9954 100%);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: #ffffff;
-  border-color: #6aaa64;
-  box-shadow: 0 2px 8px rgba(106, 170, 100, 0.25);
+  border-color: #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
 }
 
 .dynamic-waffle-tile.yellow {
-  background: linear-gradient(135deg, #c9b458 0%, #b8a347 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   color: #ffffff;
-  border-color: #c9b458;
-  box-shadow: 0 2px 8px rgba(201, 180, 88, 0.25);
+  border-color: #f59e0b;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
 }
 
 .dynamic-waffle-tile.gray {
-  background: linear-gradient(135deg, #787c7e 0%, #6c757d 100%);
+  background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
   color: #ffffff;
-  border-color: #787c7e;
-  box-shadow: 0 2px 8px rgba(120, 124, 126, 0.25);
+  border-color: #94a3b8;
+  box-shadow: 0 2px 8px rgba(148, 163, 184, 0.25);
 }
 
 /* 选中状态 - 动态瓦片 */
@@ -742,8 +759,13 @@ body {
 
 /* 脉冲动画适配 */
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 /* 响应式布局优化 */
@@ -753,12 +775,12 @@ body {
     max-width: min(90vw, 85vh, 480px);
     min-height: 350px;
   }
-  
+
   .game-board {
     gap: clamp(6px, 1.5vw, 12px);
     max-width: 380px;
   }
-  
+
   .dynamic-waffle-tile {
     width: clamp(55px, 16vw, 75px);
     height: clamp(55px, 16vw, 75px);
@@ -773,12 +795,12 @@ body {
     max-width: min(95vw, 80vh, 360px);
     min-height: 320px;
   }
-  
+
   .game-board {
     gap: clamp(4px, 1vw, 8px);
     max-width: 300px;
   }
-  
+
   .dynamic-waffle-tile {
     width: clamp(48px, 18vw, 65px);
     height: clamp(48px, 18vw, 65px);
@@ -794,12 +816,12 @@ body {
     max-width: min(98vw, 75vh, 300px);
     min-height: 280px;
   }
-  
+
   .game-board {
     gap: clamp(3px, 0.8vw, 6px);
     max-width: 260px;
   }
-  
+
   .dynamic-waffle-tile {
     width: clamp(42px, 20vw, 55px);
     height: clamp(42px, 20vw, 55px);
@@ -815,11 +837,11 @@ body {
     max-width: min(80vw, 75vh, 420px);
     min-height: 60vh;
   }
-  
+
   .game-board {
     gap: clamp(6px, 1.5vh, 12px);
   }
-  
+
   .dynamic-waffle-tile {
     width: clamp(50px, 12vh, 70px);
     height: clamp(50px, 12vh, 70px);
@@ -833,7 +855,7 @@ body {
     max-width: min(75vw, 70vh, 380px);
     min-height: 50vh;
   }
-  
+
   .dynamic-waffle-tile {
     width: clamp(45px, 10vh, 65px);
     height: clamp(45px, 10vh, 65px);
@@ -842,18 +864,22 @@ body {
 }
 /* 飞行元素的动画效果 */
 @keyframes swap-pulse {
-  0% { 
+  0% {
     transform: scale(1);
     opacity: 0.9;
   }
-  100% { 
+  100% {
     transform: scale(1.05);
     opacity: 1;
   }
 }
 
 @keyframes swap-bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {
@@ -866,15 +892,15 @@ body {
 
 /* 交换完成后的脉冲效果 */
 @keyframes swap-flash {
-  0% { 
+  0% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
   }
-  50% { 
+  50% {
     transform: scale(1.1);
     box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
   }
-  100% { 
+  100% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
   }
