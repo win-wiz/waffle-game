@@ -225,17 +225,17 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
     () => (
       <div className='text-center mb-16'>
         <h2 className='text-4xl font-bold text-slate-800 mb-8'>
-          🎨 Color Meaning Guide
+          🎨 Waffle Game Color Guide: Master the Visual Clues
         </h2>
         <div className='mb-8'>
           <h3 className='text-2xl font-bold text-slate-800 mb-4'>
-            🔍 Color System Explanation
+            🔍 Understanding Waffle Game Colors
           </h3>
           <p className='text-slate-700 text-xl leading-relaxed max-w-4xl mx-auto'>
-            The Waffle game uses colors to indicate the status of each letter.
-            Understanding these colors is key to solving the puzzle! Each
-            letter's color is displayed based on its correctness in the current
-            word.
+            Master the Waffle Game with our comprehensive color guide. Each
+            color in Waffle Game provides crucial feedback about letter
+            placement. Understanding these visual clues is essential for solving
+            Waffle Game puzzles efficiently and becoming a Waffle Game expert.
           </p>
         </div>
       </div>
@@ -259,49 +259,50 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
             />
             <div className='text-center'>
               <h3 className='text-3xl font-bold text-green-700 mb-2'>
-                🟢 Green - Correct Position
+                🟢 Green Letters: Perfect Placement in Waffle Game
               </h3>
               <p className='text-green-600 text-xl'>
-                The letter is in the completely correct position in the word
+                Green indicates the letter is correctly positioned in your
+                Waffle Game solution
               </p>
             </div>
           </div>
 
           <div className='text-center mb-12'>
             <h4 className='text-xl font-bold text-green-800 mb-8'>
-              ✅ Meaning of Green Letters:
+              ✅ What Green Letters Mean in Waffle Game:
             </h4>
             <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto'>
               <div className='text-green-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
-                  Belongs to Word
+                  Correct Letter
                 </span>
-                <p>This letter belongs to this word</p>
+                <p>This letter belongs to the target word in Waffle Game</p>
               </div>
               <div className='text-green-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
-                  Correct Position
+                  Perfect Position
                 </span>
-                <p>The letter's position is completely correct</p>
+                <p>The letter placement is exactly where it should be</p>
               </div>
               <div className='text-green-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
-                  No Movement Needed
+                  No Action Needed
                 </span>
-                <p>No need to move this letter</p>
+                <p>Keep this letter in place during Waffle Game swaps</p>
               </div>
               <div className='text-green-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
-                  Solving Anchor
+                  Strategic Anchor
                 </span>
-                <p>Can serve as an anchor for solving</p>
+                <p>Use green letters as reference points for solving</p>
               </div>
             </div>
           </div>
 
           <div className='text-center'>
             <h4 className='text-xl font-bold text-green-800 mb-8'>
-              🎮 Game Scenario Examples
+              🎮 Waffle Game Scenarios with Green Letters
             </h4>
             <div className='grid lg:grid-cols-3 gap-12 max-w-5xl mx-auto'>
               <HorizontalWordExample
@@ -312,8 +313,8 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
                   { letter: 'L', color: 'white' },
                   { letter: 'D', color: 'white' }
                 ]}
-                title='Green in Horizontal Word'
-                description='O is correct in the 2nd position of word WORLD'
+                title='Horizontal Word Success'
+                description='Green O confirms correct placement in position 2 of WORLD'
               />
 
               <VerticalWordExample
@@ -324,8 +325,8 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
                   { letter: 'S', color: 'white' },
                   { letter: 'E', color: 'white' }
                 ]}
-                title='Green in Vertical Word'
-                description='O is correct in the 2nd position of word MOUSE'
+                title='Vertical Word Success'
+                description='Green O shows perfect placement in vertical MOUSE formation'
               />
 
               <CrosswordExample
@@ -339,8 +340,8 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
                   { letter: 'M', color: 'white' },
                   { letter: 'U', color: 'white' }
                 ]}
-                title='Green at Intersection'
-                description='O is correct for both horizontal word WOR and vertical word MOU'
+                title='Intersection Victory'
+                description='Green O works perfectly for both crossing words in Waffle Game'
               />
             </div>
           </div>
@@ -356,49 +357,50 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
             />
             <div className='text-center'>
               <h3 className='text-3xl font-bold text-yellow-700 mb-2'>
-                🟡 Yellow - Wrong Position
+                🟡 Yellow Letters: Right Letter, Wrong Spot
               </h3>
               <p className='text-yellow-600 text-xl'>
-                The letter belongs to the word, but is in the wrong position
+                Yellow means the letter belongs in the word but needs
+                repositioning in Waffle Game
               </p>
             </div>
           </div>
 
           <div className='text-center mb-12'>
             <h4 className='text-xl font-bold text-yellow-800 mb-8'>
-              ⚠️ Meaning of Yellow Letters:
+              ⚠️ Understanding Yellow Letters in Waffle Game:
             </h4>
             <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto'>
               <div className='text-yellow-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
-                  Belongs to Word
+                  Valid Letter
                 </span>
-                <p>This letter indeed belongs to this word</p>
+                <p>This letter is part of the target Waffle Game word</p>
               </div>
               <div className='text-yellow-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
                   Wrong Position
                 </span>
-                <p>But the current position is incorrect</p>
+                <p>Current placement is incorrect and needs adjustment</p>
               </div>
               <div className='text-yellow-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
-                  Needs Movement
+                  Requires Swapping
                 </span>
-                <p>Need to find its correct position</p>
+                <p>Move this letter to find its correct Waffle Game position</p>
               </div>
               <div className='text-yellow-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
-                  Important Clue
+                  Strategic Clue
                 </span>
-                <p>Is an important clue for solving</p>
+                <p>Yellow letters provide valuable solving hints</p>
               </div>
             </div>
           </div>
 
           <div className='text-center'>
             <h4 className='text-xl font-bold text-yellow-800 mb-8'>
-              🎮 Game Scenario Examples
+              🎮 Waffle Game Yellow Letter Examples
             </h4>
             <div className='grid lg:grid-cols-3 gap-12 max-w-5xl mx-auto'>
               <HorizontalWordExample
@@ -409,8 +411,8 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
                   { letter: 'H', color: 'white' },
                   { letter: 'T', color: 'white' }
                 ]}
-                title='Yellow in Horizontal Word'
-                description='R belongs to word RIGHT but not in the 1st position'
+                title='Misplaced Letter'
+                description='R belongs in RIGHT but not at position 1 in Waffle Game'
               />
 
               <VerticalWordExample
@@ -421,8 +423,8 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
                   { letter: 'N', color: 'white' },
                   { letter: 'T', color: 'white' }
                 ]}
-                title='Yellow in Vertical Word'
-                description='R belongs to word PRINT but not in the 2nd position'
+                title='Vertical Mismatch'
+                description='R exists in PRINT but requires different placement'
               />
 
               <CrosswordExample
@@ -436,8 +438,8 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
                   { letter: 'F', color: 'white' },
                   { letter: 'O', color: 'white' }
                 ]}
-                title='Yellow at Intersection'
-                description='R belongs to one or both words but in wrong position'
+                title='Intersection Challenge'
+                description='R belongs to at least one word but needs relocation'
               />
             </div>
           </div>
@@ -449,49 +451,50 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
             <WaffleTile letter='X' color='gray' className='w-16 h-16 text-xl' />
             <div className='text-center'>
               <h3 className='text-3xl font-bold text-gray-700 mb-2'>
-                ⚫ Gray - Not in Word
+                ⚫ Gray Letters: Wrong Letter Choice
               </h3>
               <p className='text-gray-600 text-xl'>
-                The letter does not belong to the word
+                Gray indicates the letter doesn't belong in this Waffle Game
+                word
               </p>
             </div>
           </div>
 
           <div className='text-center mb-12'>
             <h4 className='text-xl font-bold text-gray-800 mb-8'>
-              ❌ Meaning of Gray Letters:
+              ❌ What Gray Letters Mean in Waffle Game:
             </h4>
             <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto'>
               <div className='text-gray-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
-                  Not in Word
+                  Invalid Letter
                 </span>
-                <p>This letter does not belong to this word at all</p>
+                <p>This letter doesn't belong in this specific word</p>
               </div>
               <div className='text-gray-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
-                  Needs Swapping
+                  Must Replace
                 </span>
-                <p>Needs to be swapped with letters from other positions</p>
+                <p>Swap with letters from other Waffle Game positions</p>
               </div>
               <div className='text-gray-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
-                  Final Step
+                  Final Solution Step
                 </span>
-                <p>Usually the final step in solving the puzzle</p>
+                <p>Often the last piece in completing Waffle Game puzzles</p>
               </div>
               <div className='text-gray-700 text-lg text-center'>
                 <span className='block font-semibold mb-2 text-xl'>
-                  Exclude Options
+                  Elimination Tool
                 </span>
-                <p>Helps eliminate incorrect options</p>
+                <p>Helps narrow down possible letter combinations</p>
               </div>
             </div>
           </div>
 
           <div className='text-center'>
             <h4 className='text-xl font-bold text-gray-800 mb-8'>
-              🎮 Game Scenario Examples
+              🎮 Waffle Game Gray Letter Scenarios
             </h4>
             <div className='grid lg:grid-cols-3 gap-12 max-w-5xl mx-auto'>
               <HorizontalWordExample
@@ -502,8 +505,8 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
                   { letter: 'D', color: 'white' },
                   { letter: 'S', color: 'white' }
                 ]}
-                title='Gray in Horizontal Word'
-                description='X does not belong to word WORDS, needs replacement'
+                title='Wrong Letter'
+                description='X does not fit in WORDS and must be swapped in Waffle Game'
               />
 
               <VerticalWordExample
@@ -514,8 +517,8 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
                   { letter: 'Z', color: 'gray' },
                   { letter: 'E', color: 'white' }
                 ]}
-                title='Gray in Vertical Word'
-                description='Z does not belong to word TABLE, needs replacement'
+                title='Vertical Error'
+                description='Z disrupts TABLE formation and needs replacement'
               />
 
               <CrosswordExample
@@ -529,8 +532,8 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
                   { letter: 'B', color: 'white' },
                   { letter: 'K', color: 'white' }
                 ]}
-                title='Gray at Intersection'
-                description='Q belongs to neither horizontal nor vertical word'
+                title='Intersection Block'
+                description='Q fits neither horizontal nor vertical word in Waffle Game'
               />
             </div>
           </div>
@@ -539,28 +542,32 @@ const ColorMeaningGuide: React.FC = React.memo(() => {
         {/* Summary */}
         <div className='text-center bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl'>
           <h3 className='text-2xl font-bold text-gray-800 mb-6'>
-            🎯 Strategy Summary
+            🎯 Master Waffle Game Strategy
           </h3>
           <div className='grid md:grid-cols-3 gap-8 max-w-4xl mx-auto'>
             <div className='text-center'>
               <div className='text-4xl mb-4'>🟢</div>
-              <h4 className='font-bold text-green-700 mb-2'>Green First</h4>
+              <h4 className='font-bold text-green-700 mb-2'>
+                Secure Green First
+              </h4>
               <p className='text-gray-600'>
-                First confirm green letter positions, they are correct
+                Build your Waffle Game solution around confirmed green letters
               </p>
             </div>
             <div className='text-center'>
               <div className='text-4xl mb-4'>🟡</div>
-              <h4 className='font-bold text-yellow-700 mb-2'>Move Yellow</h4>
+              <h4 className='font-bold text-yellow-700 mb-2'>
+                Relocate Yellow
+              </h4>
               <p className='text-gray-600'>
-                Move yellow letters to their correct positions
+                Find the correct positions for yellow letters in Waffle Game
               </p>
             </div>
             <div className='text-center'>
               <div className='text-4xl mb-4'>⚫</div>
               <h4 className='font-bold text-gray-700 mb-2'>Replace Gray</h4>
               <p className='text-gray-600'>
-                Replace gray letters with correct ones
+                Swap gray letters to complete your Waffle Game puzzle
               </p>
             </div>
           </div>

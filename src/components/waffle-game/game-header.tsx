@@ -86,7 +86,7 @@ export const GameHeader = memo(function GameHeader({
               <span className='text-white text-2xl font-bold'>W</span>
             </div>
             <div>
-              <h1 className={titleClasses}>Waffle Game</h1>
+              <h2 className={titleClasses}>Waffle Game</h2>
               <p className='text-slate-700/80 text-sm font-medium'>
                 Word Puzzle Game
               </p>

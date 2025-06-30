@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { hintStorage, type HintData } from '@/lib/storage';
 
-const DAILY_HINT_LIMIT = 3;
+const DAILY_HINT_LIMIT = 5;
 
 interface HintResult {
   newCount: number;

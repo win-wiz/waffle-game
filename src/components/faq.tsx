@@ -5,8 +5,14 @@ import { Card } from '@/components/ui/card';
 
 interface FAQItem {
   question: string;
-  answer: string;
-  category: 'game' | 'technical' | 'strategy';
+  answer:
+    | string
+    | {
+        intro?: string;
+        list?: string[];
+        outro?: string;
+      };
+  category: 'game' | 'tips' | 'strategy';
 }
 
 interface FAQItemComponentProps {
@@ -33,6 +39,33 @@ const FAQItemComponent: React.FC<FAQItemComponentProps> = React.memo(
     const handleClick = useCallback(() => {
       onToggle(index);
     }, [index, onToggle]);
+
+    const renderAnswer = useMemo(() => {
+      if (typeof item.answer === 'string') {
+        return <p className='text-slate-700 leading-relaxed'>{item.answer}</p>;
+      }
+
+      return (
+        <div className='text-slate-700 leading-relaxed space-y-4'>
+          {item.answer.intro && <p>{item.answer.intro}</p>}
+          {item.answer.list && (
+            <ul className='space-y-3 ml-4'>
+              {item.answer.list.map((listItem, listIndex) => (
+                <li key={listIndex} className='flex items-start space-x-3'>
+                  <span className='inline-flex items-center justify-center w-6 h-6 bg-blue-100 text-blue-700 rounded-full text-sm font-medium flex-shrink-0 mt-0.5'>
+                    {listIndex + 1}
+                  </span>
+                  <span className='flex-1'>{listItem}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {item.answer.outro && (
+            <p className='font-medium'>{item.answer.outro}</p>
+          )}
+        </div>
+      );
+    }, [item.answer]);
 
     return (
       <Card className='overflow-hidden border-0 shadow-md hover:shadow-lg transition-all duration-300 bg-white/90 backdrop-blur-sm'>
@@ -79,12 +112,12 @@ const FAQItemComponent: React.FC<FAQItemComponentProps> = React.memo(
 
         <div
           className={`overflow-hidden transition-all duration-500 ease-in-out ${
-            isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+            isOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
           <div className='px-6 pb-6'>
             <div className='bg-gradient-to-r from-slate-50/50 to-blue-50/50 rounded-xl p-4 border border-slate-200/30'>
-              <p className='text-slate-700 leading-relaxed'>{item.answer}</p>
+              {renderAnswer}
             </div>
           </div>
         </div>
@@ -96,10 +129,10 @@ const FAQItemComponent: React.FC<FAQItemComponentProps> = React.memo(
 FAQItemComponent.displayName = 'FAQItemComponent';
 
 interface CategoryButtonProps {
-  category: 'all' | 'game' | 'technical' | 'strategy';
+  category: 'all' | 'game' | 'tips' | 'strategy';
   isActive: boolean;
   count: number;
-  onClick: (category: 'all' | 'game' | 'technical' | 'strategy') => void;
+  onClick: (category: 'all' | 'game' | 'tips' | 'strategy') => void;
 }
 
 // Memoized category button component
@@ -114,9 +147,9 @@ const CategoryButton: React.FC<CategoryButtonProps> = React.memo(
         case 'all':
           return { label: 'All Questions', icon: '📋' };
         case 'game':
-          return { label: 'Game Rules', icon: '🎮' };
-        case 'technical':
-          return { label: 'Technical', icon: '⚙️' };
+          return { label: 'Gameplay', icon: '🎮' };
+        case 'tips':
+          return { label: 'Tips & Help', icon: '💡' };
         case 'strategy':
           return { label: 'Strategy', icon: '🧠' };
         default:
@@ -151,7 +184,7 @@ CategoryButton.displayName = 'CategoryButton';
 
 const FAQ: React.FC = React.memo(() => {
   const [activeCategory, setActiveCategory] = useState<
-    'all' | 'game' | 'technical' | 'strategy'
+    'all' | 'game' | 'tips' | 'strategy'
   >('all');
   const [openItems, setOpenItems] = useState<Set<number>>(new Set());
 
@@ -159,80 +192,135 @@ const FAQ: React.FC = React.memo(() => {
     () => [
       // Game-related questions
       {
-        question: 'What are the basic rules of the Waffle game?',
+        question: 'How do you play Waffle Game? What are the basic rules?',
         answer:
-          'Waffle is a word swap puzzle game. Players need to form 6 valid English words (3 horizontal, 3 vertical) in a 5x5 grid by swapping letter positions. The game provides color hints: green indicates correct position, yellow indicates the letter exists but is in wrong position, gray indicates the letter does not belong to that word.',
+          'Waffle Game is an engaging word puzzle where players create 6 valid words (3 horizontal, 3 vertical) in a 5x5 grid by swapping letters. The Waffle Game uses color-coded feedback: green shows correct letter placement, yellow indicates the letter belongs in the word but wrong position, and gray means the letter does not belong. Master these Waffle Game mechanics to solve puzzles efficiently.',
         category: 'game'
       },
       {
-        question: 'How do I know when the game is completed?',
+        question: 'How do I know when I have completed a Waffle Game puzzle?',
         answer:
-          'When all 21 letter tiles turn green, it means all 6 words have been correctly formed and the game is complete. The system will automatically detect and display victory information.',
+          'You win Waffle Game when all 21 tiles turn green, meaning all 6 words are correctly formed. The Waffle Game system automatically detects completion and displays your victory stats, including moves used and time taken to solve the Waffle Game puzzle.',
         category: 'game'
       },
       {
-        question: 'Is there a move limit for each puzzle?',
+        question: 'Is there a move limit in Waffle Game puzzles?',
         answer:
-          'Yes, each Waffle puzzle has a maximum move limit, typically 15 moves. This adds challenge to the game, requiring players to think carefully about each swap.',
+          'Yes, each Waffle Game puzzle has a 15-move limit, adding strategic depth to gameplay. This Waffle Game constraint requires careful planning and efficient swapping strategies to solve puzzles within the move allowance.',
         category: 'game'
       },
       {
-        question: 'How does the AI suggestion feature work?',
+        question: 'How does the AI suggestion feature work in Waffle Game?',
         answer:
-          'The AI suggestion feature analyzes the current board state, calculates all possible swap combinations, and recommends optimal swap strategies that maximize the number of correct letters. This helps players get hints when stuck.',
+          'The Waffle Game AI analyzes your current board state and calculates optimal swap combinations. This intelligent Waffle Game assistant recommends the best moves to maximize correct letter placements, helping players when stuck on challenging Waffle Game puzzles.',
         category: 'game'
       },
       {
-        question: 'Can I generate custom themed puzzles?',
+        question: 'Can I create custom themed Waffle Game puzzles?',
         answer:
-          'Yes, the project supports AI generation functionality that can create word puzzles based on different themes (such as nature, technology, emotions, etc.). Simply select a theme and use the AI generator.',
+          'Absolutely! Our Waffle Game includes AI-powered puzzle generation with various themes like nature, technology, and emotions. Simply select your preferred theme, and the Waffle Game generator creates unique, solvable puzzles tailored to your interests.',
         category: 'game'
       },
 
       // Strategy-related questions
       {
-        question: 'What are some good solving strategies?',
-        answer:
-          'Recommended strategies include: 1) Prioritize fixing green letters as anchors; 2) Analyze possible positions for yellow letters; 3) Identify common English word patterns; 4) Start from intersection points, as these letters belong to two words simultaneously; 5) Use AI suggestions wisely.',
+        question:
+          'What are the best strategies for solving Waffle Game puzzles?',
+        answer: {
+          intro:
+            'Effective Waffle Game strategies that significantly improve your solving success rates include:',
+          list: [
+            'Secure green letters first as anchors - they are confirmed correct placements',
+            'Analyze yellow letter placement options to find their proper positions',
+            'Recognize common English word patterns and letter combinations',
+            'Focus on intersection points where letters serve dual words simultaneously',
+            'Use AI hints strategically when stuck on challenging Waffle Game puzzles'
+          ],
+          outro:
+            'These proven Waffle Game tactics will help you solve puzzles more efficiently and consistently.'
+        },
         category: 'strategy'
       },
       {
-        question: 'How to handle complex swap situations?',
-        answer:
-          "For complex situations, consider: 1) Solve partial words first to establish a foundation; 2) Utilize word intersection characteristics, as one swap may affect multiple words; 3) Use elimination method to determine which letters don't belong to specific positions; 4) Use AI suggestions when necessary for optimal solutions.",
+        question: 'How should I handle complex Waffle Game swap situations?',
+        answer: {
+          intro:
+            'For challenging Waffle Game scenarios, apply these advanced techniques:',
+          list: [
+            'Solve partial words first to establish solid foundations',
+            'Leverage intersection characteristics for multi-word benefits',
+            'Use elimination methods to identify incorrect letter placements',
+            'Apply AI suggestions for optimal Waffle Game solutions when needed'
+          ]
+        },
         category: 'strategy'
       },
       {
-        question: 'How to improve solving efficiency?',
-        answer:
-          'Methods to improve efficiency include: 1) Familiarize yourself with common English word patterns; 2) Prioritize areas with more clues; 3) Learn to identify word roots, prefixes, and suffixes; 4) Practice spatial thinking to predict swap results; 5) Allocate moves wisely.',
+        question:
+          'How can I improve my Waffle Game solving speed and efficiency?',
+        answer: {
+          intro:
+            'Boost your Waffle Game performance with these proven methods:',
+          list: [
+            'Learn common English word patterns, prefixes, and suffixes',
+            'Prioritize high-clue areas with more confirmed letters',
+            'Develop spatial awareness to predict swap results accurately',
+            'Practice recognizing word roots and common letter combinations',
+            'Manage your moves strategically throughout each Waffle Game puzzle'
+          ],
+          outro:
+            'Regular practice with these techniques will significantly improve your Waffle Game solving speed.'
+        },
         category: 'strategy'
       },
 
-      // Technical questions
+      // User Experience & Tips questions (replacing Technical)
       {
-        question: 'What technology stack does the project use?',
-        answer:
-          'The project is built on Next.js 15, using React 18, TypeScript, and Tailwind CSS for development. The UI component library uses shadcn/ui, state management uses React Hooks, and integrates AI functionality and animation systems.',
-        category: 'technical'
+        question: 'What should I do when I feel stuck on a Waffle Game puzzle?',
+        answer: {
+          intro:
+            'When you feel stuck on a Waffle Game puzzle, try these helpful approaches:',
+          list: [
+            'Take a step back and look for obvious letter patterns or common word endings',
+            'Focus on intersection letters first - they belong to two words simultaneously',
+            'Use the AI suggestion feature to get a strategic hint without giving up',
+            'Look for green letters as anchors and build around confirmed correct placements',
+            'Try working backwards from partially completed words to find missing letters'
+          ],
+          outro:
+            'Remember, every Waffle Game puzzle is designed to be solvable - persistence and strategy will get you there!'
+        },
+        category: 'tips'
       },
       {
-        question: 'How are the game algorithms implemented?',
+        question:
+          'How difficult are Waffle Game puzzles? Are there different difficulty levels?',
         answer:
-          "Core game algorithms include: 1) Word validation algorithm that checks if letter combinations form valid words; 2) Color calculation algorithm that determines each letter's status; 3) Swap suggestion algorithm using heuristic search to find optimal solutions; 4) Puzzle generation algorithm ensuring generated puzzles are solvable and challenging.",
-        category: 'technical'
+          "Waffle Game puzzles are designed to be challenging but fair for players of all skill levels. While there isn't a formal difficulty selection, each Waffle Game puzzle varies in complexity based on word choices and letter arrangements. Beginners might find their first few Waffle Game puzzles challenging, but with practice, pattern recognition improves significantly. The 15-move limit ensures every puzzle remains engaging without being frustratingly difficult.",
+        category: 'tips'
       },
       {
-        question: 'How is game performance ensured?',
-        answer:
-          'Performance optimization measures include: 1) Using React.memo and useMemo to reduce unnecessary re-renders; 2) Implementing virtualization and lazy loading; 3) Optimizing algorithm complexity; 4) Using Web Workers for complex calculations; 5) Using CSS animations instead of JavaScript animations for better smoothness.',
-        category: 'technical'
+        question: 'Can I play Waffle Game on my phone or tablet?',
+        answer: {
+          intro:
+            'Absolutely! Waffle Game is fully optimized for mobile devices:',
+          list: [
+            'Works perfectly on smartphones and tablets with touch controls',
+            'Responsive design automatically adjusts to your screen size',
+            'Smooth touch gestures for swapping letters with finger taps',
+            'Fast loading and reliable performance on mobile browsers',
+            'No app download required - play directly in your mobile browser'
+          ],
+          outro:
+            "Whether you're on desktop, tablet, or phone, your Waffle Game experience will be smooth and engaging!"
+        },
+        category: 'tips'
       },
       {
-        question: 'Which browsers does the project support?',
+        question: 'What happens if I run out of moves in Waffle Game?',
         answer:
-          'The project supports all modern browsers, including Chrome 90+, Firefox 88+, Safari 14+, Edge 90+. It uses modern web standards to ensure good experience across different devices and browsers.',
-        category: 'technical'
+          "If you use all 15 moves without solving the Waffle Game puzzle, don't worry! You can start a new puzzle immediately or use the AI suggestion feature before your moves run out. Each failed attempt is a learning opportunity that helps you recognize patterns faster in future Waffle Game puzzles. Many players find that understanding why they got stuck helps them improve their strategy for the next challenge.",
+        category: 'tips'
       }
     ],
     []
@@ -240,7 +328,7 @@ const FAQ: React.FC = React.memo(() => {
 
   // Cache category counts to avoid recalculation
   const categoryCounts = useMemo(() => {
-    const counts = { all: faqData.length, game: 0, strategy: 0, technical: 0 };
+    const counts = { all: faqData.length, game: 0, strategy: 0, tips: 0 };
     faqData.forEach(item => {
       counts[item.category]++;
     });
@@ -252,7 +340,7 @@ const FAQ: React.FC = React.memo(() => {
       { key: 'all', label: 'All Questions', icon: '📋' },
       { key: 'game', label: 'Gameplay', icon: '🎮' },
       { key: 'strategy', label: 'Strategy', icon: '🧠' },
-      { key: 'technical', label: 'Technical', icon: '⚙️' }
+      { key: 'tips', label: 'Tips & Help', icon: '💡' }
     ],
     []
   );
@@ -278,7 +366,7 @@ const FAQ: React.FC = React.memo(() => {
   }, []);
 
   const handleCategoryChange = useCallback(
-    (category: 'all' | 'game' | 'technical' | 'strategy') => {
+    (category: 'all' | 'game' | 'tips' | 'strategy') => {
       setActiveCategory(category);
     },
     []
@@ -298,30 +386,32 @@ const FAQ: React.FC = React.memo(() => {
 
   return (
     <div className='bg-gradient-to-br from-slate-200/40 via-gray-200/30 to-blue-200/45 relative'>
-      {/* 华夫饼纹理背景 */}
+      {/* Waffle texture background */}
       <div className='absolute inset-0 opacity-3'>
         <div className='w-full h-full' style={backgroundStyle}></div>
       </div>
 
       <div className='relative z-10 max-w-6xl mx-auto px-6 py-16'>
-        {/* 简洁的标题区域 */}
+        {/* Header section */}
         <div className='text-center mb-16'>
           <div className='inline-flex items-center justify-center w-16 h-16 bg-slate-200/80 backdrop-blur-sm rounded-2xl mb-6 shadow-lg border border-slate-300'>
             <span className='text-2xl'>❓</span>
           </div>
           <h2 className='text-3xl font-bold bg-gradient-to-r from-slate-800 to-blue-700 bg-clip-text text-transparent mb-4'>
-            Frequently Asked Questions
+            Waffle Game FAQ: Complete Guide & Answers
           </h2>
           <div className='w-20 h-0.5 bg-gradient-to-r from-blue-500 to-slate-600 mx-auto mb-6'></div>
           <p className='text-lg text-slate-700/80 max-w-2xl mx-auto'>
-            Detailed Q&A about the Waffle game
+            Comprehensive answers to all your Waffle Game questions, from basic
+            gameplay to advanced strategies
           </p>
         </div>
-        {/* 分类筛选 - 简洁设计 */}
+
+        {/* Category filter */}
         <div className='mb-12'>
           <div className='bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/80 shadow-lg'>
             <h3 className='text-xl font-semibold text-slate-800 mb-6 text-center'>
-              Question Categories
+              Waffle Game Help Categories
             </h3>
             <div className='flex flex-wrap justify-center gap-3'>
               {categories.map(category => (
@@ -339,7 +429,7 @@ const FAQ: React.FC = React.memo(() => {
           </div>
         </div>
 
-        {/* FAQ列表 - 简洁设计 */}
+        {/* FAQ list */}
         <div className='space-y-4'>
           {filteredFAQ.map((item, index) => {
             const isOpen = openItems.has(index);
@@ -355,29 +445,29 @@ const FAQ: React.FC = React.memo(() => {
           })}
         </div>
 
-        {/* 空状态 */}
+        {/* Empty state */}
         {filteredFAQ.length === 0 && (
           <div className='text-center py-16'>
             <div className='w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6'>
               <span className='text-4xl'>🤔</span>
             </div>
             <h3 className='text-xl font-semibold text-slate-800 mb-2'>
-              No Related Questions
+              No Waffle Game Questions Found
             </h3>
             <p className='text-slate-700'>
-              Please select other categories or view all questions
+              Select different categories or view all Waffle Game questions
             </p>
           </div>
         )}
 
-        {/* 底部提示区域 - 简洁设计 */}
+        {/* Footer tip section */}
         <div className='mt-16'>
           <div className='text-center'>
             <div className='bg-gradient-to-r from-slate-100/80 to-blue-100/80 backdrop-blur-sm rounded-xl p-6 border border-slate-300/60 shadow-md'>
               <p className='text-slate-700 font-medium'>
-                💫 Can't find the answer you're looking for? Try using the "Get
-                Suggestion" feature in the game, or generate new puzzle
-                challenges!
+                💫 Need more Waffle Game help? Try the AI suggestion feature
+                in-game, or generate new Waffle Game challenges to practice your
+                skills!
               </p>
             </div>
           </div>
