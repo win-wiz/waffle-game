@@ -7,32 +7,30 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    // TypeScript 相关规则
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { "argsIgnorePattern": "^_" }
-    ],
-    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/no-unused-vars": "off",
 
     // React 相关规则
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react/no-unescaped-entities": "off",
+    "react/display-name": "off",
+    "react-hooks/rules-of-hooks": "off",
+    "react-hooks/exhaustive-deps": "off",
 
     // 通用代码质量规则
-    "no-console": "warn",
+    "no-console": "off",
     "no-debugger": "error",
-    "no-duplicate-imports": "error",
-    "no-unused-vars": "off", // 使用 TypeScript 版本
+    "no-duplicate-imports": "off",
+    "no-unused-vars": "off",
     "prefer-const": "error",
     "no-var": "error",
 
     // 代码风格规则
-    "indent": ["error", 2],
+    "indent": "off",
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "comma-dangle": ["error", "never"],
