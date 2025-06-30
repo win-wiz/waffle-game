@@ -1,0 +1,32 @@
+# 构建输出
+.next/
+out/
+build/
+dist/
+
+# 依赖目录
+node_modules/
+
+# 锁文件和包管理文件
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 日志文件
+*.log
+
+# 环境变量文件
+.env*
+
+# 其他
+.DS_Store
+*.min.js
+*.min.css
+
+# 文档
+*.md
+README.md
+
+# 缓存
+.cache/
+*.tsbuildinfo
