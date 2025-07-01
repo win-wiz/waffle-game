@@ -15,8 +15,8 @@ const GameIntroduction: React.FC = React.memo(() => {
     () => [
       'Word game enthusiasts',
       'People who enjoy logical thinking challenges',
-      'English learners (vocabulary building)',
-      'Users seeking casual puzzle games'
+      'English learners building vocabulary',
+      'Players seeking casual puzzle games'
     ],
     []
   );
@@ -25,12 +25,12 @@ const GameIntroduction: React.FC = React.memo(() => {
     <div className='py-20 px-6'>
       <div className='max-w-6xl mx-auto'>
         <h2 className='text-4xl font-bold text-slate-800 mb-12 text-center'>
-          🎮 What is Waffle Game?
+          🎮 What is This Word Puzzle?
         </h2>
         <div className='grid lg:grid-cols-2 gap-16'>
           <div className='space-y-8'>
             <p className='text-slate-700 text-xl leading-relaxed'>
-              Waffle is a word-based puzzle game similar to Wordle, but more
+              This is an engaging word puzzle similar to Wordle, but more
               challenging! You need to solve 6 intersecting English words
               simultaneously in a 5×5 grid.
             </p>
@@ -69,7 +69,7 @@ const GameIntroduction: React.FC = React.memo(() => {
               <p className='text-slate-700 text-lg leading-relaxed'>
                 Don't be intimidated by the complex grid! Start by understanding
                 the color meanings, then focus on intersection points, and
-                you'll quickly get the hang of it.
+                you'll quickly master the game.
               </p>
             </div>
           </div>

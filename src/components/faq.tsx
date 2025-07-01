@@ -192,94 +192,91 @@ const FAQ: React.FC = React.memo(() => {
     () => [
       // Game-related questions
       {
-        question: 'How do you play Waffle Game? What are the basic rules?',
+        question:
+          'How do you play this word puzzle game? What are the basic rules?',
         answer:
-          'Waffle Game is an engaging word puzzle where players create 6 valid words (3 horizontal, 3 vertical) in a 5x5 grid by swapping letters. The Waffle Game uses color-coded feedback: green shows correct letter placement, yellow indicates the letter belongs in the word but wrong position, and gray means the letter does not belong. Master these Waffle Game mechanics to solve puzzles efficiently.',
+          'Waffle Game is an engaging word puzzle where you create 6 valid words (3 horizontal, 3 vertical) in a 5x5 grid by swapping letters. The game uses color-coded feedback: green shows correct letter placement, yellow indicates the letter belongs in the word but is in the wrong position, and gray means the letter does not belong. Master these mechanics to solve puzzles efficiently.',
         category: 'game'
       },
       {
-        question: 'How do I know when I have completed a Waffle Game puzzle?',
+        question: 'How do I know when I have completed a puzzle?',
         answer:
-          'You win Waffle Game when all 21 tiles turn green, meaning all 6 words are correctly formed. The Waffle Game system automatically detects completion and displays your victory stats, including moves used and time taken to solve the Waffle Game puzzle.',
+          'You win when all 21 tiles turn green, meaning all 6 words are correctly formed. The system automatically detects completion and displays your victory stats, including moves used and time taken to solve the puzzle.',
         category: 'game'
       },
       {
-        question: 'Is there a move limit in Waffle Game puzzles?',
+        question: 'Is there a move limit for each puzzle?',
         answer:
-          'Yes, each Waffle Game puzzle has a 15-move limit, adding strategic depth to gameplay. This Waffle Game constraint requires careful planning and efficient swapping strategies to solve puzzles within the move allowance.',
+          'Yes, each puzzle has a 15-move limit, adding strategic depth to gameplay. This constraint requires careful planning and efficient swapping strategies to solve puzzles within the move allowance.',
         category: 'game'
       },
       {
-        question: 'How does the AI suggestion feature work in Waffle Game?',
+        question: 'How does the AI suggestion feature work?',
         answer:
-          'The Waffle Game AI analyzes your current board state and calculates optimal swap combinations. This intelligent Waffle Game assistant recommends the best moves to maximize correct letter placements, helping players when stuck on challenging Waffle Game puzzles.',
+          'The AI analyzes your current board state and calculates optimal swap combinations. This intelligent assistant recommends the best moves to maximize correct letter placements, helping players when stuck on challenging puzzles.',
         category: 'game'
       },
       {
-        question: 'Can I create custom themed Waffle Game puzzles?',
+        question: 'Can I create custom themed puzzles?',
         answer:
-          'Absolutely! Our Waffle Game includes AI-powered puzzle generation with various themes like nature, technology, and emotions. Simply select your preferred theme, and the Waffle Game generator creates unique, solvable puzzles tailored to your interests.',
+          'Absolutely! The game includes AI-powered puzzle generation with various themes like nature, technology, and emotions. Simply select your preferred theme, and the generator creates unique, solvable puzzles tailored to your interests.',
         category: 'game'
       },
 
       // Strategy-related questions
       {
         question:
-          'What are the best strategies for solving Waffle Game puzzles?',
+          'What are the best strategies for solving word puzzles efficiently?',
         answer: {
           intro:
-            'Effective Waffle Game strategies that significantly improve your solving success rates include:',
+            'Effective puzzle-solving strategies that significantly improve your success rates include:',
           list: [
             'Secure green letters first as anchors - they are confirmed correct placements',
             'Analyze yellow letter placement options to find their proper positions',
             'Recognize common English word patterns and letter combinations',
             'Focus on intersection points where letters serve dual words simultaneously',
-            'Use AI hints strategically when stuck on challenging Waffle Game puzzles'
+            'Use AI hints strategically when stuck on challenging puzzles'
           ],
           outro:
-            'These proven Waffle Game tactics will help you solve puzzles more efficiently and consistently.'
+            'These proven tactics will help you solve puzzles more efficiently and consistently.'
         },
         category: 'strategy'
       },
       {
-        question: 'How should I handle complex Waffle Game swap situations?',
+        question: 'How should I handle complex swap situations?',
         answer: {
-          intro:
-            'For challenging Waffle Game scenarios, apply these advanced techniques:',
+          intro: 'For challenging scenarios, apply these advanced techniques:',
           list: [
             'Solve partial words first to establish solid foundations',
             'Leverage intersection characteristics for multi-word benefits',
             'Use elimination methods to identify incorrect letter placements',
-            'Apply AI suggestions for optimal Waffle Game solutions when needed'
+            'Apply AI suggestions for optimal solutions when needed'
           ]
         },
         category: 'strategy'
       },
       {
-        question:
-          'How can I improve my Waffle Game solving speed and efficiency?',
+        question: 'How can I improve my solving speed and efficiency?',
         answer: {
-          intro:
-            'Boost your Waffle Game performance with these proven methods:',
+          intro: 'Boost your performance with these proven methods:',
           list: [
             'Learn common English word patterns, prefixes, and suffixes',
             'Prioritize high-clue areas with more confirmed letters',
             'Develop spatial awareness to predict swap results accurately',
             'Practice recognizing word roots and common letter combinations',
-            'Manage your moves strategically throughout each Waffle Game puzzle'
+            'Manage your moves strategically throughout each puzzle'
           ],
           outro:
-            'Regular practice with these techniques will significantly improve your Waffle Game solving speed.'
+            'Regular practice with these techniques will significantly improve your solving speed.'
         },
         category: 'strategy'
       },
 
-      // User Experience & Tips questions (replacing Technical)
+      // Tips & Help questions
       {
-        question: 'What should I do when I feel stuck on a Waffle Game puzzle?',
+        question: 'What should I do when I feel stuck on a puzzle?',
         answer: {
-          intro:
-            'When you feel stuck on a Waffle Game puzzle, try these helpful approaches:',
+          intro: 'When you feel stuck, try these helpful approaches:',
           list: [
             'Take a step back and look for obvious letter patterns or common word endings',
             'Focus on intersection letters first - they belong to two words simultaneously',
@@ -288,22 +285,21 @@ const FAQ: React.FC = React.memo(() => {
             'Try working backwards from partially completed words to find missing letters'
           ],
           outro:
-            'Remember, every Waffle Game puzzle is designed to be solvable - persistence and strategy will get you there!'
+            'Remember, every puzzle is designed to be solvable - persistence and strategy will get you there!'
         },
         category: 'tips'
       },
       {
         question:
-          'How difficult are Waffle Game puzzles? Are there different difficulty levels?',
+          'How difficult are the puzzles? Are there different difficulty levels?',
         answer:
-          "Waffle Game puzzles are designed to be challenging but fair for players of all skill levels. While there isn't a formal difficulty selection, each Waffle Game puzzle varies in complexity based on word choices and letter arrangements. Beginners might find their first few Waffle Game puzzles challenging, but with practice, pattern recognition improves significantly. The 15-move limit ensures every puzzle remains engaging without being frustratingly difficult.",
+          "The puzzles are designed to be challenging but fair for players of all skill levels. While there isn't a formal difficulty selection, each puzzle varies in complexity based on word choices and letter arrangements. Beginners might find their first few puzzles challenging, but with practice, pattern recognition improves significantly. The 15-move limit ensures every puzzle remains engaging without being frustratingly difficult.",
         category: 'tips'
       },
       {
-        question: 'Can I play Waffle Game on my phone or tablet?',
+        question: 'Can I play on my phone or tablet?',
         answer: {
-          intro:
-            'Absolutely! Waffle Game is fully optimized for mobile devices:',
+          intro: 'Absolutely! The game is fully optimized for mobile devices:',
           list: [
             'Works perfectly on smartphones and tablets with touch controls',
             'Responsive design automatically adjusts to your screen size',
@@ -312,14 +308,14 @@ const FAQ: React.FC = React.memo(() => {
             'No app download required - play directly in your mobile browser'
           ],
           outro:
-            "Whether you're on desktop, tablet, or phone, your Waffle Game experience will be smooth and engaging!"
+            "Whether you're on desktop, tablet, or phone, your gaming experience will be smooth and engaging!"
         },
         category: 'tips'
       },
       {
-        question: 'What happens if I run out of moves in Waffle Game?',
+        question: 'What happens if I run out of moves?',
         answer:
-          "If you use all 15 moves without solving the Waffle Game puzzle, don't worry! You can start a new puzzle immediately or use the AI suggestion feature before your moves run out. Each failed attempt is a learning opportunity that helps you recognize patterns faster in future Waffle Game puzzles. Many players find that understanding why they got stuck helps them improve their strategy for the next challenge.",
+          "If you use all 15 moves without solving the puzzle, don't worry! You can start a new puzzle immediately or use the AI suggestion feature before your moves run out. Each failed attempt is a learning opportunity that helps you recognize patterns faster in future puzzles. Many players find that understanding why they got stuck helps them improve their strategy for the next challenge.",
         category: 'tips'
       }
     ],
@@ -375,10 +371,6 @@ const FAQ: React.FC = React.memo(() => {
   // Cache background style to avoid recreation
   const backgroundStyle = useMemo(
     () => ({
-      // backgroundImage: `
-      //   linear-gradient(90deg, rgba(100,116,139,0.15) 1px, transparent 1px),
-      //   linear-gradient(rgba(100,116,139,0.15) 1px, transparent 1px)
-      // `,
       backgroundSize: '60px 60px'
     }),
     []
@@ -402,8 +394,8 @@ const FAQ: React.FC = React.memo(() => {
           </h2>
           <div className='w-20 h-0.5 bg-gradient-to-r from-blue-500 to-slate-600 mx-auto mb-6'></div>
           <p className='text-lg text-slate-700/80 max-w-2xl mx-auto'>
-            Comprehensive answers to all your Waffle Game questions, from basic
-            gameplay to advanced strategies
+            Comprehensive answers to all your questions about this engaging word
+            puzzle game, from basic gameplay to advanced strategies
           </p>
         </div>
 
@@ -411,7 +403,7 @@ const FAQ: React.FC = React.memo(() => {
         <div className='mb-12'>
           <div className='bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/80 shadow-lg'>
             <h3 className='text-xl font-semibold text-slate-800 mb-6 text-center'>
-              Waffle Game Help Categories
+              Help Categories
             </h3>
             <div className='flex flex-wrap justify-center gap-3'>
               {categories.map(category => (
@@ -452,10 +444,10 @@ const FAQ: React.FC = React.memo(() => {
               <span className='text-4xl'>🤔</span>
             </div>
             <h3 className='text-xl font-semibold text-slate-800 mb-2'>
-              No Waffle Game Questions Found
+              No Questions Found
             </h3>
             <p className='text-slate-700'>
-              Select different categories or view all Waffle Game questions
+              Select different categories or view all questions
             </p>
           </div>
         )}
@@ -465,9 +457,8 @@ const FAQ: React.FC = React.memo(() => {
           <div className='text-center'>
             <div className='bg-gradient-to-r from-slate-100/80 to-blue-100/80 backdrop-blur-sm rounded-xl p-6 border border-slate-300/60 shadow-md'>
               <p className='text-slate-700 font-medium'>
-                💫 Need more Waffle Game help? Try the AI suggestion feature
-                in-game, or generate new Waffle Game challenges to practice your
-                skills!
+                💫 Need more help? Try the AI suggestion feature in-game, or
+                generate new challenges to practice your skills!
               </p>
             </div>
           </div>

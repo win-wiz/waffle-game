@@ -29,6 +29,11 @@ const DynamicFAQ = dynamic(() => import('@/components/faq'), {
   loading: () => <div className='h-32 animate-pulse bg-gray-100 rounded-lg' />
 });
 
+const DynamicFooter = dynamic(() => import('@/components/footer'), {
+  ssr: false,
+  loading: () => <div className='h-32 animate-pulse bg-gray-100' />
+});
+
 const HomePage = memo(function HomePage() {
   // 监听滚动状态，用于导航栏占位
   const isScrolled = useScroll(50);
@@ -293,6 +298,9 @@ const HomePage = memo(function HomePage() {
 
         {/* FAQ区域 - 使用动态导入 */}
         <DynamicFAQ />
+
+        {/* 底部区域 - 使用动态导入 */}
+        <DynamicFooter />
       </div>
 
       {/* 游戏结束对话框 */}

@@ -10,7 +10,12 @@ import FAQ from './help/FAQ';
 
 const HelpCenter: React.FC = () => {
   return (
-    <div id="help-center" className="min-h-screen">
+    <main
+      id='help-center'
+      className='min-h-screen'
+      role='main'
+      aria-labelledby='help-center-title'
+    >
       <HelpCenterHeader />
       <GameIntroduction />
       <GameGridDisplay />
@@ -19,7 +24,7 @@ const HelpCenter: React.FC = () => {
       <GameRules />
       <StrategyTips />
       <FAQ />
-    </div>
+    </main>
   );
 };
 

@@ -5,32 +5,33 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { NoSSR } from '@/components/no-ssr';
 
 export const metadata: Metadata = {
-  title: 'Waffle Game - Word Puzzle Challenge with AI Hints | Play Online Free',
+  title: 'Waffle Game - Free Online Word Puzzle with AI Hints',
   description:
-    'Master Waffle Game - the ultimate word puzzle challenge! Solve 6 words in 15 moves with color-coded hints. Play Waffle Game online free with AI suggestions, custom themes, and daily puzzles. Perfect for word game enthusiasts seeking brain-training fun.',
+    'Play Waffle Game online free! Solve word puzzles in 15 moves with AI hints. Master this engaging brain game with custom themes and daily challenges.',
   keywords:
-    'waffle game, word puzzle, word game, brain games, puzzle game, word challenge, online games, free games, word swap, letter puzzle, daily puzzle, AI hints, vocabulary game, word finder, crossword alternative',
+    'waffle game, word puzzle, online game, AI hints, brain games, word challenge, puzzle game, free games',
   authors: [{ name: 'Waffle Game Team' }],
   creator: 'Waffle Game',
   publisher: 'Waffle Game Platform',
   robots: 'index, follow',
   viewport: 'width=device-width, initial-scale=1',
   openGraph: {
-    title: 'Waffle Game - Ultimate Word Puzzle Challenge',
+    title: 'Waffle Game - Free Online Word Puzzle Game',
     description:
-      'Play Waffle Game online free! Solve word puzzles with AI hints, custom themes, and strategic gameplay. Challenge your vocabulary in this addictive Waffle Game experience.',
+      'Master Waffle Game with AI hints! Play this addictive word puzzle game online free with strategic gameplay and custom themes.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'Waffle Game'
+    siteName: 'Waffle Game',
+    url: 'https://wafflegame.com'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Waffle Game - Word Puzzle Challenge',
+    title: 'Waffle Game - Online Word Puzzle Challenge',
     description:
-      'Master the ultimate Waffle Game word puzzle! Play free online with AI hints and custom themes.'
+      'Play Waffle Game free online! Solve word puzzles with AI hints and strategic gameplay.'
   },
   alternates: {
-    canonical: '/'
+    canonical: 'https://wafflegame.com'
   },
   other: {
     'theme-color': '#3b82f6',
