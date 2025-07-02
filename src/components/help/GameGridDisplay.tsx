@@ -121,56 +121,58 @@ const GameGridDisplay: React.FC = React.memo(() => {
     <div className='py-20 px-6'>
       <div className='max-w-6xl mx-auto text-center'>
         <h2 className='text-4xl font-bold text-slate-800 mb-12'>
-          🧩 Game Grid Example
+          🧩 Waffle Game Grid Layout
         </h2>
         <div className='inline-block mb-12'>
           <WaffleGrid />
         </div>
         <p className='text-slate-700 text-xl mb-16 max-w-4xl mx-auto leading-relaxed'>
-          Each tile is numbered (0-20) and colored according to its state. Blue
-          rings mark intersection positions where letters must work for both
-          horizontal and vertical words.
+          The Waffle Game grid features 21 tiles (numbered 0-20), each
+          displaying a letter and color-coded feedback. Special blue rings
+          highlight crucial intersection points where letters must work for both
+          horizontal and vertical words, making each Waffle Game puzzle a unique
+          challenge.
         </p>
         <div className='mt-16'>
           <h3 className='text-2xl font-bold text-slate-800 mb-8'>
-            📍 Grid Layout Description
+            📍 Understanding the Waffle Game Grid
           </h3>
           <div className='grid lg:grid-cols-2 gap-12 text-left max-w-4xl mx-auto'>
             <div className='space-y-6'>
               <h4 className='text-xl font-bold text-slate-700 mb-4'>
-                Horizontal Words:
+                Horizontal Words in Waffle Game:
               </h4>
               <ul className='space-y-3 text-slate-700 text-lg'>
                 <li className='flex items-center gap-3'>
                   <span className='w-2 h-2 bg-blue-500 rounded-full'></span>
-                  Row 1: Positions 0, 2, 4
+                  Top Row: Positions 0-4 form first word
                 </li>
                 <li className='flex items-center gap-3'>
                   <span className='w-2 h-2 bg-blue-500 rounded-full'></span>
-                  Row 3: Positions 8, 10, 12
+                  Middle Row: Positions 8-12 create second word
                 </li>
                 <li className='flex items-center gap-3'>
                   <span className='w-2 h-2 bg-blue-500 rounded-full'></span>
-                  Row 5: Positions 16, 18, 20
+                  Bottom Row: Positions 16-20 complete third word
                 </li>
               </ul>
             </div>
             <div className='space-y-6'>
               <h4 className='text-xl font-bold text-slate-700 mb-4'>
-                Vertical Words:
+                Vertical Words in Waffle Game:
               </h4>
               <ul className='space-y-3 text-slate-700 text-lg'>
                 <li className='flex items-center gap-3'>
                   <span className='w-2 h-2 bg-slate-500 rounded-full'></span>
-                  Column 1: Positions 0, 5, 8, 13, 16
+                  Left Column: Positions 0-16 form first word
                 </li>
                 <li className='flex items-center gap-3'>
                   <span className='w-2 h-2 bg-slate-500 rounded-full'></span>
-                  Column 3: Positions 2, 6, 10, 14, 18
+                  Middle Column: Positions 2-18 create second word
                 </li>
                 <li className='flex items-center gap-3'>
                   <span className='w-2 h-2 bg-slate-500 rounded-full'></span>
-                  Column 5: Positions 4, 7, 12, 15, 20
+                  Right Column: Positions 4-20 complete third word
                 </li>
               </ul>
             </div>

@@ -642,9 +642,9 @@ body {
 
 /* 动态瓦片尺寸 */
 .dynamic-waffle-tile {
-  width: clamp(60px, 14vw, 85px);
-  height: clamp(60px, 14vw, 85px);
-  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  width: clamp(55px, 14vw, 80px);
+  height: clamp(55px, 14vw, 80px);
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -773,7 +773,7 @@ body {
   .game-container {
     padding: clamp(16px, 4vw, 32px);
     max-width: min(90vw, 85vh, 480px);
-    min-height: 350px;
+    min-height: 380px;
   }
 
   .game-board {
@@ -782,9 +782,9 @@ body {
   }
 
   .dynamic-waffle-tile {
-    width: clamp(55px, 16vw, 75px);
-    height: clamp(55px, 16vw, 75px);
-    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    width: clamp(45px, 14vw, 65px);
+    height: clamp(45px, 14vw, 65px);
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
     border-radius: clamp(8px, 2vw, 12px);
   }
 }
@@ -793,12 +793,12 @@ body {
   .game-container {
     padding: clamp(12px, 3vw, 24px);
     max-width: min(95vw, 80vh, 360px);
-    min-height: 320px;
+    min-height: 360px;
   }
 
   .game-board {
-    gap: clamp(4px, 1vw, 8px);
-    max-width: 300px;
+    gap: clamp(6px, 1.5vw, 16px);
+    max-width: 360px;
   }
 
   .dynamic-waffle-tile {
@@ -818,7 +818,7 @@ body {
   }
 
   .game-board {
-    gap: clamp(3px, 0.8vw, 6px);
+    gap: clamp(5px, 1.2vw, 8px);
     max-width: 260px;
   }
 

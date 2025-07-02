@@ -192,130 +192,129 @@ const FAQ: React.FC = React.memo(() => {
     () => [
       // Game-related questions
       {
-        question:
-          'How do you play this word puzzle game? What are the basic rules?',
+        question: 'What is Waffle Game and how do you play it?',
         answer:
-          'Waffle Game is an engaging word puzzle where you create 6 valid words (3 horizontal, 3 vertical) in a 5x5 grid by swapping letters. The game uses color-coded feedback: green shows correct letter placement, yellow indicates the letter belongs in the word but is in the wrong position, and gray means the letter does not belong. Master these mechanics to solve puzzles efficiently.',
+          "Waffle Game is a unique word puzzle that challenges you to create 6 valid words (3 horizontal, 3 vertical) in a 5x5 grid. Players swap letters strategically using color-coded feedback: green indicates correct placement, yellow shows a letter belongs in the word but in the wrong spot, and gray means the letter doesn't belong. Each Waffle Game puzzle is carefully designed to be both challenging and solvable.",
         category: 'game'
       },
       {
-        question: 'How do I know when I have completed a puzzle?',
+        question: "How do I know when I've won a Waffle Game puzzle?",
         answer:
-          'You win when all 21 tiles turn green, meaning all 6 words are correctly formed. The system automatically detects completion and displays your victory stats, including moves used and time taken to solve the puzzle.',
+          'Victory in Waffle Game is achieved when all 21 letter tiles turn green, indicating perfect word placement. The game automatically recognizes completion and displays your performance stats, including moves used and completion time. Each successful Waffle Game solution demonstrates your word puzzle mastery.',
         category: 'game'
       },
       {
-        question: 'Is there a move limit for each puzzle?',
+        question: 'What makes Waffle Game different from other word puzzles?',
         answer:
-          'Yes, each puzzle has a 15-move limit, adding strategic depth to gameplay. This constraint requires careful planning and efficient swapping strategies to solve puzzles within the move allowance.',
+          'Waffle Game stands out with its unique 5x5 grid format and 15-move limit per puzzle. Unlike traditional word games, Waffle Game combines vocabulary skills with strategic thinking as you swap letters to form multiple intersecting words simultaneously. This innovative approach makes each Waffle Game puzzle a fresh challenge.',
         category: 'game'
       },
       {
-        question: 'How does the AI suggestion feature work?',
+        question: 'How does the AI assistant help in Waffle Game?',
         answer:
-          'The AI analyzes your current board state and calculates optimal swap combinations. This intelligent assistant recommends the best moves to maximize correct letter placements, helping players when stuck on challenging puzzles.',
+          "The Waffle Game AI assistant analyzes your current board state and suggests optimal moves to help you progress. This intelligent feature examines possible letter combinations and recommends strategic swaps, making Waffle Game more accessible while maintaining the challenge. It's particularly helpful when you're learning the game or stuck on a difficult puzzle.",
         category: 'game'
       },
       {
-        question: 'Can I create custom themed puzzles?',
+        question: 'Can I create custom Waffle Game puzzles?',
         answer:
-          'Absolutely! The game includes AI-powered puzzle generation with various themes like nature, technology, and emotions. Simply select your preferred theme, and the generator creates unique, solvable puzzles tailored to your interests.',
+          'Yes! Waffle Game features an AI-powered puzzle generator that creates unique, themed challenges. Whether you prefer nature, technology, or emotion-themed puzzles, the Waffle Game generator ensures each puzzle is both engaging and solvable, adding variety to your daily word puzzle experience.',
         category: 'game'
       },
 
       // Strategy-related questions
       {
         question:
-          'What are the best strategies for solving word puzzles efficiently?',
+          'What are the best strategies for solving Waffle Game puzzles?',
         answer: {
-          intro:
-            'Effective puzzle-solving strategies that significantly improve your success rates include:',
+          intro: 'Master Waffle Game with these proven strategies:',
           list: [
-            'Secure green letters first as anchors - they are confirmed correct placements',
-            'Analyze yellow letter placement options to find their proper positions',
-            'Recognize common English word patterns and letter combinations',
-            'Focus on intersection points where letters serve dual words simultaneously',
-            'Use AI hints strategically when stuck on challenging puzzles'
+            'Start with green letters as they are confirmed correct placements in your Waffle Game',
+            'Analyze yellow letters to determine their proper positions within words',
+            'Focus on intersection points where letters serve multiple words in the Waffle Game grid',
+            'Look for common English word patterns to guide your letter swaps',
+            'Use the AI assistant strategically when facing challenging Waffle Game puzzles'
           ],
           outro:
-            'These proven tactics will help you solve puzzles more efficiently and consistently.'
+            'These tactics will help you solve Waffle Game puzzles more efficiently and boost your success rate.'
         },
         category: 'strategy'
       },
       {
-        question: 'How should I handle complex swap situations?',
+        question: 'How do I handle complex letter swaps in Waffle Game?',
         answer: {
-          intro: 'For challenging scenarios, apply these advanced techniques:',
+          intro:
+            'Tackle challenging Waffle Game situations with these advanced techniques:',
           list: [
-            'Solve partial words first to establish solid foundations',
-            'Leverage intersection characteristics for multi-word benefits',
-            'Use elimination methods to identify incorrect letter placements',
-            'Apply AI suggestions for optimal solutions when needed'
+            'Build partial words first to establish a strong foundation',
+            'Use intersection points to benefit multiple words simultaneously',
+            'Apply elimination methods to identify incorrect letter placements',
+            'Leverage the Waffle Game AI assistant for optimal solutions'
           ]
         },
         category: 'strategy'
       },
       {
-        question: 'How can I improve my solving speed and efficiency?',
+        question: 'How can I improve my Waffle Game solving speed?',
         answer: {
-          intro: 'Boost your performance with these proven methods:',
+          intro: 'Enhance your Waffle Game performance with these methods:',
           list: [
-            'Learn common English word patterns, prefixes, and suffixes',
-            'Prioritize high-clue areas with more confirmed letters',
-            'Develop spatial awareness to predict swap results accurately',
-            'Practice recognizing word roots and common letter combinations',
-            'Manage your moves strategically throughout each puzzle'
+            'Study common English word patterns and letter combinations',
+            'Prioritize areas with more confirmed letters',
+            'Develop spatial awareness to predict swap outcomes',
+            'Practice recognizing word roots and patterns',
+            'Manage your moves strategically throughout each Waffle Game puzzle'
           ],
           outro:
-            'Regular practice with these techniques will significantly improve your solving speed.'
+            'Regular practice with these techniques will significantly improve your Waffle Game solving speed.'
         },
         category: 'strategy'
       },
 
       // Tips & Help questions
       {
-        question: 'What should I do when I feel stuck on a puzzle?',
+        question: 'What should I do when stuck on a Waffle Game puzzle?',
         answer: {
-          intro: 'When you feel stuck, try these helpful approaches:',
+          intro:
+            'When facing a challenging Waffle Game puzzle, try these approaches:',
           list: [
-            'Take a step back and look for obvious letter patterns or common word endings',
-            'Focus on intersection letters first - they belong to two words simultaneously',
-            'Use the AI suggestion feature to get a strategic hint without giving up',
-            'Look for green letters as anchors and build around confirmed correct placements',
-            'Try working backwards from partially completed words to find missing letters'
+            'Take a step back and look for obvious word patterns or endings',
+            'Focus on intersection letters that connect multiple words',
+            'Use the Waffle Game AI assistant for strategic hints',
+            'Build around green letters as they are confirmed correct',
+            'Work backwards from partially completed words'
           ],
           outro:
-            'Remember, every puzzle is designed to be solvable - persistence and strategy will get you there!'
+            'Remember, every Waffle Game puzzle is designed to be solvable - persistence and strategy will lead to success!'
         },
         category: 'tips'
       },
       {
-        question:
-          'How difficult are the puzzles? Are there different difficulty levels?',
+        question: 'How difficult are Waffle Game puzzles?',
         answer:
-          "The puzzles are designed to be challenging but fair for players of all skill levels. While there isn't a formal difficulty selection, each puzzle varies in complexity based on word choices and letter arrangements. Beginners might find their first few puzzles challenging, but with practice, pattern recognition improves significantly. The 15-move limit ensures every puzzle remains engaging without being frustratingly difficult.",
+          "Waffle Game puzzles are designed to be challenging yet fair for all skill levels. While there aren't explicit difficulty settings, each puzzle varies in complexity based on word choices and letter arrangements. The 15-move limit adds strategic depth to each Waffle Game challenge, making it engaging without being frustrating.",
         category: 'tips'
       },
       {
-        question: 'Can I play on my phone or tablet?',
+        question: 'Can I play Waffle Game on mobile devices?',
         answer: {
-          intro: 'Absolutely! The game is fully optimized for mobile devices:',
+          intro: 'Yes! Waffle Game is fully optimized for mobile play:',
           list: [
-            'Works perfectly on smartphones and tablets with touch controls',
-            'Responsive design automatically adjusts to your screen size',
-            'Smooth touch gestures for swapping letters with finger taps',
-            'Fast loading and reliable performance on mobile browsers',
-            'No app download required - play directly in your mobile browser'
+            'Smooth performance on smartphones and tablets with touch controls',
+            'Responsive design that adapts to your screen size',
+            'Intuitive touch gestures for letter swaps',
+            'Fast loading and reliable mobile browser experience',
+            'No app download required - play Waffle Game directly in your browser'
           ],
           outro:
-            "Whether you're on desktop, tablet, or phone, your gaming experience will be smooth and engaging!"
+            'Enjoy Waffle Game on any device with a seamless, engaging experience!'
         },
         category: 'tips'
       },
       {
-        question: 'What happens if I run out of moves?',
+        question: 'What happens if I run out of moves in Waffle Game?',
         answer:
-          "If you use all 15 moves without solving the puzzle, don't worry! You can start a new puzzle immediately or use the AI suggestion feature before your moves run out. Each failed attempt is a learning opportunity that helps you recognize patterns faster in future puzzles. Many players find that understanding why they got stuck helps them improve their strategy for the next challenge.",
+          "If you use all 15 moves in Waffle Game without solving the puzzle, don't worry! You can start a new puzzle immediately or use the AI assistant before your moves run out. Each attempt helps you learn and improve your Waffle Game strategy. Many players find that understanding their challenges leads to better performance in future puzzles.",
         category: 'tips'
       }
     ],
