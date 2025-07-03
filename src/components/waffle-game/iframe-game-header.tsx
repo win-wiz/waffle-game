@@ -13,19 +13,24 @@ interface IFrameGameHeaderProps {
 // 静态样式常量 - 避免每次渲染重新创建
 const STYLES = {
   nav: 'bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm',
-  container: 'max-w-full mx-auto px-3 py-2',
-  layout: 'flex items-center justify-between',
-  title: 'text-sm font-semibold text-slate-800',
-  centerStats: 'flex items-center space-x-1 sm:space-x-2 flex-1 justify-center',
-  moveBox: 'flex items-center space-x-1 bg-slate-50 rounded-lg px-2 py-1 border border-slate-200',
-  moveLabel: 'text-xs text-slate-600',
-  moveValue: 'text-sm font-bold text-slate-800',
-  moveSeparator: 'text-xs text-slate-400',
-  actionButtons: 'flex items-center space-x-1 flex-shrink-0',
-  shareButton: 'flex items-center justify-center w-7 h-7 bg-blue-50 hover:bg-blue-100 rounded-md border border-blue-200 transition-colors duration-200',
-  statsButton: 'flex items-center justify-center w-7 h-7 bg-slate-50 hover:bg-slate-100 rounded-md border border-slate-200 transition-colors duration-200',
-  shareIcon: 'w-3.5 h-3.5 text-blue-600',
-  statsIcon: 'w-3.5 h-3.5 text-slate-600'
+  container: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3',
+  layout: 'flex items-center justify-between gap-4 sm:gap-8',
+  titleSection: 'flex items-center flex-shrink-0 min-w-[120px]',
+  title: 'text-lg sm:text-xl font-bold text-slate-800 tracking-tight',
+  centerStats: 'flex items-center justify-center flex-1 max-w-md mx-auto',
+  moveBox:
+    'flex items-center gap-2 bg-slate-50/80 rounded-xl px-4 py-2 border border-slate-200/80',
+  moveLabel: 'text-sm text-slate-600 font-medium',
+  moveValue: 'text-lg font-bold text-slate-800',
+  moveSeparator: 'text-sm text-slate-400 mx-1',
+  actionButtons:
+    'flex items-center gap-2 flex-shrink-0 min-w-[120px] justify-end',
+  shareButton:
+    'flex items-center justify-center w-9 h-9 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 transition-colors duration-200',
+  statsButton:
+    'flex items-center justify-center w-9 h-9 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 transition-colors duration-200',
+  shareIcon: 'w-4 h-4 text-blue-600',
+  statsIcon: 'w-4 h-4 text-slate-600'
 } as const;
 
 export const IFrameGameHeader = memo(function IFrameGameHeader({
@@ -51,7 +56,7 @@ export const IFrameGameHeader = memo(function IFrameGameHeader({
         maxMoves
       };
     }
-    
+
     try {
       const stats = gameStatsManager.getStatistics();
       return {
@@ -71,11 +76,12 @@ export const IFrameGameHeader = memo(function IFrameGameHeader({
     }
   }, [gameStatus, moveCount, maxMoves]);
 
-  // 简化状态内容 - 移除不必要的 useMemo
   const getShareTitle = () => {
-    return gameStatus === 'won' ? 'Share Your Victory!' : 'Share Your Progress!';
+    return gameStatus === 'won'
+      ? 'Share Your Victory!'
+      : 'Share Your Progress!';
   };
-  
+
   const getShareDescription = () => {
     return gameStatus === 'won'
       ? 'Show off your amazing Waffle game performance!'
@@ -85,24 +91,25 @@ export const IFrameGameHeader = memo(function IFrameGameHeader({
   return (
     <nav className={STYLES.nav}>
       <div className={STYLES.container}>
-        {/* Unified Single Row Layout */}
         <div className={STYLES.layout}>
-          {/* Left: Title Only */}
-          <div className='flex items-center flex-shrink-0'>
-            <h2 className={STYLES.title}>Waffle</h2>
+          {/* Left: Title with better spacing */}
+          <div className={STYLES.titleSection}>
+            <h2 className={STYLES.title}>Waffle Game</h2>
           </div>
 
-          {/* Center: Compact Game Stats */}
+          {/* Center: Enhanced Game Stats */}
           <div className={STYLES.centerStats}>
             <div className={STYLES.moveBox}>
-              <span className={STYLES.moveLabel}>Moves:</span>
-              <span className={STYLES.moveValue}>{moveCount}</span>
-              <span className={STYLES.moveSeparator}>/</span>
-              <span className={STYLES.moveValue}>{maxMoves}</span>
+              <span className={STYLES.moveLabel}>Moves</span>
+              <div className='flex items-center'>
+                <span className={STYLES.moveValue}>{moveCount}</span>
+                <span className={STYLES.moveSeparator}>/</span>
+                <span className={STYLES.moveValue}>{maxMoves}</span>
+              </div>
             </div>
           </div>
 
-          {/* Right: Action Buttons */}
+          {/* Right: Action Buttons with better spacing */}
           <div className={STYLES.actionButtons}>
             <ShareDialog
               shareData={shareData}

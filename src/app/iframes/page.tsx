@@ -220,8 +220,6 @@ const IFramePage = memo(function IFramePage() {
     ]
   );
 
-
-
   return (
     <>
       {/* CSS动画样式 */}
@@ -249,7 +247,10 @@ const IFramePage = memo(function IFramePage() {
 
         {/* AI建议区域 - 优化间距 */}
         <main className='max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 bg-gradient-to-br from-slate-50/25 via-gray-50/15 to-blue-50/40'>
-          <div id='ai-suggestions' className='w-full max-w-md sm:max-w-lg mx-auto px-2 sm:px-4'>
+          <div
+            id='ai-suggestions'
+            className='w-full max-w-md sm:max-w-lg mx-auto px-2 sm:px-4'
+          >
             {board && <AISuggestion {...aiSuggestionProps} />}
           </div>
         </main>

@@ -15,8 +15,8 @@ import { GameEndDialog } from '@/components/waffle-game/game-end-dialog';
 import { useGameLogic } from '@/components/waffle-game/use-game-logic';
 import Statistics from '@/components/statistics';
 import { gameStatsManager } from '@/lib/statistics';
-import type { SquareNumber, Board, Tile } from '@/types';
-import { Color } from '@/types';
+// import type { SquareNumber, Board, Tile } from '@/types';
+// import { Color } from '@/types';
 
 // 动态导入非关键组件以减少初始包大小
 const DynamicHelpCenter = dynamic(() => import('@/components/help-center'), {
