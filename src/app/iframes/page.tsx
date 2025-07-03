@@ -229,31 +229,41 @@ const IFramePage = memo(function IFramePage() {
         {/* 顶部导航栏 - iframe专用 */}
         <IFrameGameHeader {...gameHeaderProps} />
 
-        {/* 游戏主区域 - 优化间距和布局 */}
+        {/* 游戏主区域 - 初始状态铺满屏幕 */}
         <div
           id='game-area'
-          className='flex flex-col items-center justify-center gap-4 sm:gap-6 px-4 sm:px-6 py-4 sm:py-6 w-full min-h-[calc(100vh-120px)]'
+          className='flex flex-col items-center justify-center w-full'
+          style={{
+            minHeight: 'calc(100vh - 72px)' // 减去导航栏高度
+          }}
         >
-          {/* 游戏盘区域 - 始终显示GameBoard，内部处理loading */}
-          <div className='w-full max-w-sm sm:max-w-md md:max-w-lg flex justify-center'>
-            <GameBoard {...gameBoardProps} />
+          {/* 游戏内容区域 */}
+          <div className='w-full flex flex-col items-center gap-4 sm:gap-6 px-4 sm:px-6 py-4 sm:py-6'>
+            {/* 游戏盘区域 */}
+            <div className='w-full max-w-sm sm:max-w-md md:max-w-lg flex justify-center'>
+              <GameBoard {...gameBoardProps} />
+            </div>
+
+            {/* 操作按钮区域 */}
+            <div className='w-full flex justify-center'>
+              <GameControls {...gameControlsProps} />
+            </div>
           </div>
 
-          {/* 操作按钮区域 - 始终显示 */}
-          <div className='w-full flex justify-center'>
-            <GameControls {...gameControlsProps} />
-          </div>
+          {/* AI建议区域 - 仅在有内容时显示 */}
+          {board && swaps && swaps.length > 0 && (
+            <main className='w-full bg-gradient-to-br from-slate-50/25 via-gray-50/15 to-blue-50/40 mt-4'>
+              <div
+                id='ai-suggestions'
+                className='max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8'
+              >
+                <div className='w-full max-w-md sm:max-w-lg mx-auto'>
+                  <AISuggestion {...aiSuggestionProps} />
+                </div>
+              </div>
+            </main>
+          )}
         </div>
-
-        {/* AI建议区域 - 优化间距 */}
-        <main className='max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 bg-gradient-to-br from-slate-50/25 via-gray-50/15 to-blue-50/40'>
-          <div
-            id='ai-suggestions'
-            className='w-full max-w-md sm:max-w-lg mx-auto px-2 sm:px-4'
-          >
-            {board && <AISuggestion {...aiSuggestionProps} />}
-          </div>
-        </main>
       </div>
 
       {/* 游戏结束对话框 */}
@@ -264,8 +274,8 @@ const IFramePage = memo(function IFramePage() {
       {/* 统计对话框 */}
       <Statistics isOpen={showStatistics} onClose={handleCloseStatistics} />
 
-      {/* 返回顶部按钮 */}
-      <ScrollToTop threshold={300} />
+      {/* 返回顶部按钮 - 仅在有滚动内容时显示 */}
+      {board && swaps && swaps.length > 0 && <ScrollToTop threshold={300} />}
     </>
   );
 });
